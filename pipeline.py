@@ -118,7 +118,6 @@ except Exception as e:
 
 
 #%% Step 3: Load Data into a Database
-
 # Import necessary libraries for database operations
 import pyodbc
 import sqlalchemy
@@ -165,10 +164,31 @@ def upload_data(table, dataframe, upload_type):
         logging.info("Attempting to connect to the database for uploading data.")
         # Create an SQLAlchemy engine for database connection
         engine = create_engine(f"mssql+pyodbc:///?odbc_connect={DATABASE_CONNECTION_STRING}")
+        
+        # Fetch table schema to identify the timestamp column
+        with engine.connect() as conn:
+            metadata_query = f"""
+            SELECT COLUMN_NAME 
+            FROM INFORMATION_SCHEMA.COLUMNS 
+            WHERE TABLE_NAME = '{table}' 
+            AND DATA_TYPE = 'timestamp';
+            """
+            timestamp_columns = pd.read_sql(metadata_query, conn)
+            timestamp_columns = timestamp_columns["COLUMN_NAME"].tolist()
+            logging.info(f"Timestamp columns identified: {timestamp_columns}")
+
+        # Exclude timestamp columns from the DataFrame
+        dataframe = dataframe[[col for col in dataframe.columns if col not in timestamp_columns]]
+
+        # Log DataFrame details before upload
+        logging.info(f"DataFrame columns after excluding timestamp columns: {dataframe.columns}")
+        logging.info(f"DataFrame sample data:\n{dataframe.head()}")
+
         # Upload the DataFrame to the database table
         logging.info(f"Uploading data to table: {table}")
         dataframe.to_sql(table, engine, index=False, if_exists=upload_type, schema="dbo", chunksize=10000)
         logging.info(f"Data uploaded successfully to {table}.")
+        print(f"Data uploaded successfully to {table}.")
     except Exception as e:
         # Log any errors that occur during the upload process
         logging.error(f"Error uploading data: {e}")
@@ -176,17 +196,24 @@ def upload_data(table, dataframe, upload_type):
 
 
 # Specify the table name and upload type
-table_name = "dbo.Linkedin_Table"
-upload_type = "append"  # Options: 'replace', 'append'
+table_name = "linkedin_Table"
+upload_type = "replace"  # Options: 'replace', 'append'
 
-# Upload the transformed data to the database
+# Ensure DataFrame is not empty and upload data
 try:
-    upload_data(table_name, df, upload_type)
-    logging.info("Data uploaded successfully.")
-    print("Data uploaded successfully.")
+    if not df.empty:
+        upload_data(table_name, df, upload_type)
+    else:
+        logging.warning("DataFrame is empty. No data to upload.")
+        print("DataFrame is empty. No data to upload.")
 except Exception as e:
     logging.error(f"Failed to upload data: {e}")
     print(f"Failed to upload data: {e}")
 
 # Log the end of the script
 logging.info("Script ended.")
+
+
+
+
+# %%
