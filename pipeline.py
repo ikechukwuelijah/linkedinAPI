@@ -148,9 +148,9 @@ logging.getLogger().addHandler(console_handler)
 # Log the start of the script
 logging.info("Script started.")
 
-def upload_data(table, dataframe, upload_type):
+def upload_data_including_timestamp(table, dataframe, upload_type):
     """
-    Upload data to a specified table in the database.
+    Upload data to a specified table in the database, handling timestamp columns properly.
 
     Parameters:
         table (str): Name of the table to upload data.
@@ -161,10 +161,11 @@ def upload_data(table, dataframe, upload_type):
         None
     """
     try:
-        logging.info("Attempting to connect to the database for uploading data.")
+        logging.info("Connecting to the database for uploading data.")
+
         # Create an SQLAlchemy engine for database connection
         engine = create_engine(f"mssql+pyodbc:///?odbc_connect={DATABASE_CONNECTION_STRING}")
-        
+
         # Fetch table schema to identify the timestamp column
         with engine.connect() as conn:
             metadata_query = f"""
@@ -177,16 +178,16 @@ def upload_data(table, dataframe, upload_type):
             timestamp_columns = timestamp_columns["COLUMN_NAME"].tolist()
             logging.info(f"Timestamp columns identified: {timestamp_columns}")
 
-        # Exclude timestamp columns from the DataFrame
-        dataframe = dataframe[[col for col in dataframe.columns if col not in timestamp_columns]]
+        # Exclude the TIMESTAMP column from the DataFrame, if present
+        dataframe_to_upload = dataframe[[col for col in dataframe.columns if col not in timestamp_columns]]
 
         # Log DataFrame details before upload
-        logging.info(f"DataFrame columns after excluding timestamp columns: {dataframe.columns}")
-        logging.info(f"DataFrame sample data:\n{dataframe.head()}")
+        logging.info(f"DataFrame columns after excluding timestamp columns: {dataframe_to_upload.columns}")
+        logging.info(f"DataFrame sample data:\n{dataframe_to_upload.head()}")
 
         # Upload the DataFrame to the database table
         logging.info(f"Uploading data to table: {table}")
-        dataframe.to_sql(table, engine, index=False, if_exists=upload_type, schema="dbo", chunksize=10000)
+        dataframe_to_upload.to_sql(table, engine, index=False, if_exists=upload_type, schema="dbo", chunksize=10000)
         logging.info(f"Data uploaded successfully to {table}.")
         print(f"Data uploaded successfully to {table}.")
     except Exception as e:
@@ -202,7 +203,7 @@ upload_type = "replace"  # Options: 'replace', 'append'
 # Ensure DataFrame is not empty and upload data
 try:
     if not df.empty:
-        upload_data(table_name, df, upload_type)
+        upload_data_including_timestamp(table_name, df, upload_type)
     else:
         logging.warning("DataFrame is empty. No data to upload.")
         print("DataFrame is empty. No data to upload.")
@@ -212,6 +213,8 @@ except Exception as e:
 
 # Log the end of the script
 logging.info("Script ended.")
+
+
 
 
 
