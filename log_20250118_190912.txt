@@ -1,0 +1,51 @@
+2025-01-18 19:09:12,815 - INFO - Script started.
+2025-01-18 19:09:12,817 - INFO - Connecting to the database for uploading data.
+2025-01-18 19:09:13,227 - INFO - Timestamp columns identified: []
+2025-01-18 19:09:13,233 - INFO - DataFrame columns after excluding timestamp columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-18 19:09:13,239 - INFO - DataFrame sample data:
+                                 JobTitle  \
+0                           Data Engineer   
+1                    Senior Data Engineer   
+2  Data Warehouse Developer - T-SQL, SSIS   
+3  Data & Infrastructure Engineer (UK/EU)   
+4                    Senior Data Engineer   
+
+                                         CompanyURL2   CompanyId  \
+0       https://www.linkedin.com/company/finatal-ltd    945273.0   
+1  https://www.linkedin.com/company/transferroom-ltd  22044670.0   
+2   https://www.linkedin.com/company/tenthrevolution  34947348.0   
+3      https://www.linkedin.com/company/elementhuman  28537444.0   
+4    https://www.linkedin.com/company/coders-connect  18832831.0   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0                 Finatal             NaN           173.0   
+1            TransferRoom             NaN             1.0   
+2  Tenth Revolution Group             NaN             1.0   
+3           Element Human             NaN             6.0   
+4          Coders Connect             NaN            69.0   
+
+                   CompanyLocation EmploymentStatus   ExperienceLevel  \
+0      London Area, United Kingdom        Temporary       Entry level   
+1  London, England, United Kingdom        Full-time  Mid-Senior level   
+2  London, England, United Kingdom        Full-time       Entry level   
+3  London, England, United Kingdom        Full-time       Entry level   
+4      London Area, United Kingdom        Full-time  Mid-Senior level   
+
+                      Industries           Benefits  \
+0  IT Services and IT Consulting                      
+1           Software Development       Pension plan   
+2  IT Services and IT Consulting  Medical insurance   
+3  IT Services and IT Consulting                      
+4        Staffing and Recruiting                      
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4128238198/... 2025-01-17 16:49:00+00:00  
+1  https://www.linkedin.com/jobs/view/4128395693/... 2025-01-18 17:05:22+00:00  
+2  https://www.linkedin.com/jobs/view/4128570139/... 2025-01-18 15:17:22+00:00  
+3  https://www.linkedin.com/jobs/view/4128263582/... 2025-01-17 18:56:19+00:00  
+4  https://www.linkedin.com/jobs/view/4128204497/... 2025-01-17 15:05:21+00:00  
+2025-01-18 19:09:13,241 - INFO - Uploading data to table: linkedin_Table

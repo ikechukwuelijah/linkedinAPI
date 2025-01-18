@@ -282,3 +282,376 @@
 2025-01-16 17:05:16,652 - INFO - Uploading data to table: linkedin_Table
 2025-01-16 17:05:17,237 - INFO - Data uploaded successfully to linkedin_Table.
 2025-01-16 17:05:17,245 - INFO - Script ended.
+2025-01-16 20:42:41,304 - INFO - Script started.
+2025-01-16 20:42:41,329 - INFO - Connecting to the database for uploading data.
+2025-01-16 20:42:41,539 - INFO - Timestamp columns identified: []
+2025-01-16 20:42:41,555 - INFO - Original DataFrame columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-16 20:42:41,587 - INFO - Original DataFrame sample data:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4125974795/... 2025-01-16 16:07:12+00:00  
+1  https://www.linkedin.com/jobs/view/4125907950/... 2025-01-16 09:51:48+00:00  
+2  https://www.linkedin.com/jobs/view/4125910380/... 2025-01-16 09:29:13+00:00  
+3  https://www.linkedin.com/jobs/view/4127560145/... 2025-01-16 15:25:31+00:00  
+4  https://www.linkedin.com/jobs/view/4125870748/... 2025-01-16 15:15:31+00:00  
+2025-01-16 20:42:41,608 - INFO - DataFrame columns after excluding timestamp columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-16 20:42:41,644 - INFO - DataFrame sample data:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4125974795/... 2025-01-16 16:07:12+00:00  
+1  https://www.linkedin.com/jobs/view/4125907950/... 2025-01-16 09:51:48+00:00  
+2  https://www.linkedin.com/jobs/view/4125910380/... 2025-01-16 09:29:13+00:00  
+3  https://www.linkedin.com/jobs/view/4127560145/... 2025-01-16 15:25:31+00:00  
+4  https://www.linkedin.com/jobs/view/4125870748/... 2025-01-16 15:15:31+00:00  
+2025-01-16 20:42:41,669 - INFO - Uploading data to table: linkedin_Table
+2025-01-16 20:42:42,384 - ERROR - Error uploading data: (pyodbc.IntegrityError) ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert an explicit value into a timestamp column. Use INSERT with a column list to exclude the timestamp column, or insert a DEFAULT into the timestamp column. (273) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)')
+[SQL: INSERT INTO dbo.[linkedin_Table] ([JobTitle], [CompanyURL2], [CompanyId], [CompanyName], [SalaryInsights], [NoOfApplicants], [CompanyLocation], [EmploymentStatus], [ExperienceLevel], [Industries], [Benefits], [JobPostingUrl], [PostedDate]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (('Data Engineer', 'https://www.linkedin.com/company/planadigital', 74544851, 'Plan A Digital', None, 7.0, 'London Area, United Kingdom', 'Contract', 'Director', 'Advertising Services, IT Services and IT Consulting', '', 'https://www.linkedin.com/jobs/view/4125974795/?trk=jobs_biz_prem_srch', '2025-01-16 16:07:12.000000 +00:00'), ('Principal Data Engineer', 'https://www.linkedin.com/company/aubay-uk', 33298609, 'Aubay UK', None, 24.0, 'Greater London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Oil and Gas, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125907950/?trk=jobs_biz_prem_srch', '2025-01-16 09:51:48.000000 +00:00'), ('Data Platform Software Engineer', 'https://www.linkedin.com/company/referment', 15165066, 'Referment', None, 11.0, 'London Area, United Kingdom', 'Full-time', 'Mid-Senior level', 'Investment Management', '', 'https://www.linkedin.com/jobs/view/4125910380/?trk=jobs_biz_prem_srch', '2025-01-16 09:29:13.000000 +00:00'), ('Senior Business Intelligence Engineer, EU Consumables Customer Engagement', 'https://www.linkedin.com/company/amazon', 1586, 'Amazon', None, 1.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Software Development', '', 'https://www.linkedin.com/jobs/view/4127560145/?trk=jobs_biz_prem_srch', '2025-01-16 15:25:31.000000 +00:00'), ('Lead Data Engineer - Hybrid/London - £115,000 + Bonus', 'https://www.linkedin.com/company/tenthrevolution', 34947348, 'Tenth Revolution Group', None, None, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Civil Engineering, Industrial Machinery Manufacturing', '', 'https://www.linkedin.com/jobs/view/4125870748/?trk=jobs_biz_prem_srch', '2025-01-16 15:15:31.000000 +00:00'), ('Data Platform Developer/Engineer', 'https://www.linkedin.com/company/the-aa', 166345, 'The AA', None, 9.0, 'London, England, United Kingdom', 'Full-time', '', 'Motor Vehicle Manufacturing, Financial Services, Insurance', '', 'https://www.linkedin.com/jobs/view/4124672486/?trk=jobs_biz_prem_srch', '2025-01-15 20:48:04.000000 +00:00'), ('SC Data Engineer - AWS', 'https://www.linkedin.com/company/free-work-uk', 97189601, 'Free-Work UK', None, 7.0, 'London, England, United Kingdom', 'Full-time', 'Entry level', 'Human Resources Services', '', 'https://www.linkedin.com/jobs/view/4125669173/?trk=jobs_biz_prem_srch', '2025-01-16 04:02:56.000000 +00:00'), ('Senior Data Engineer', 'https://www.linkedin.com/company/barclays-bank', 1426, 'Barclays', None, 61.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Banking, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125201285/?trk=jobs_biz_prem_srch', '2025-01-15 21:48:19.000000 +00:00')  ... displaying 10 of 50 total bound parameter sets ...  ('Level 5 Data Engineer Apprenticeship - Thales', 'https://www.linkedin.com/company/makers-academy', 2921480, 'Makers', None, 38.0, 'London Area, United Kingdom', 'Full-time', '', '', '', 'https://www.linkedin.com/jobs/view/4126182712/?trk=jobs_biz_prem_srch', '2025-01-15 13:34:11.000000 +00:00'), ('DV Cleared Data Engineer', 'https://www.linkedin.com/company/abm-renovation', 1041623, 'INOVERSE GROUPE', None, None, 'London, England, United Kingdom', 'Contract', 'Entry level', 'Data Infrastructure and Analytics', '', 'https://www.linkedin.com/jobs/view/4125229323/?trk=jobs_biz_prem_srch', '2025-01-15 00:00:00.000000 +00:00'))]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+2025-01-16 20:42:42,395 - INFO - Script ended.
+2025-01-16 20:46:41,651 - INFO - Script started.
+2025-01-16 20:46:41,676 - INFO - Connecting to the database for uploading data.
+2025-01-16 20:46:41,885 - INFO - Timestamp columns identified: ['PostedDate']
+2025-01-16 20:46:41,904 - INFO - DataFrame columns after excluding timestamp columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl'],
+      dtype='object')
+2025-01-16 20:46:41,932 - INFO - DataFrame sample data:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl  
+0  https://www.linkedin.com/jobs/view/4125974795/...  
+1  https://www.linkedin.com/jobs/view/4125907950/...  
+2  https://www.linkedin.com/jobs/view/4125910380/...  
+3  https://www.linkedin.com/jobs/view/4127560145/...  
+4  https://www.linkedin.com/jobs/view/4125870748/...  
+2025-01-16 20:46:41,949 - INFO - Uploading data to table: linkedin_Table
+2025-01-16 20:46:42,816 - INFO - Data uploaded successfully to linkedin_Table.
+2025-01-16 20:46:42,837 - INFO - Script ended.
+2025-01-16 21:06:02,465 - INFO - Script started.
+2025-01-16 21:06:02,484 - INFO - Connecting to the database for uploading data.
+2025-01-16 21:06:02,648 - WARNING - No timestamp column found in table 'linkedin_Table'. Ensure the table schema includes it.
+2025-01-16 21:06:02,666 - INFO - Uploading DataFrame to table 'linkedin_Table'. DataFrame columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-16 21:06:02,689 - INFO - DataFrame sample:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4125974795/... 2025-01-16 16:07:12+00:00  
+1  https://www.linkedin.com/jobs/view/4125907950/... 2025-01-16 09:51:48+00:00  
+2  https://www.linkedin.com/jobs/view/4125910380/... 2025-01-16 09:29:13+00:00  
+3  https://www.linkedin.com/jobs/view/4127560145/... 2025-01-16 15:25:31+00:00  
+4  https://www.linkedin.com/jobs/view/4125870748/... 2025-01-16 15:15:31+00:00  
+2025-01-16 21:06:02,731 - ERROR - Error uploading data: (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'PostedDate'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[SQL: INSERT INTO dbo.[linkedin_Table] ([JobTitle], [CompanyURL2], [CompanyId], [CompanyName], [SalaryInsights], [NoOfApplicants], [CompanyLocation], [EmploymentStatus], [ExperienceLevel], [Industries], [Benefits], [JobPostingUrl], [PostedDate]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (('Data Engineer', 'https://www.linkedin.com/company/planadigital', 74544851, 'Plan A Digital', None, 7.0, 'London Area, United Kingdom', 'Contract', 'Director', 'Advertising Services, IT Services and IT Consulting', '', 'https://www.linkedin.com/jobs/view/4125974795/?trk=jobs_biz_prem_srch', '2025-01-16 16:07:12.000000 +00:00'), ('Principal Data Engineer', 'https://www.linkedin.com/company/aubay-uk', 33298609, 'Aubay UK', None, 24.0, 'Greater London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Oil and Gas, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125907950/?trk=jobs_biz_prem_srch', '2025-01-16 09:51:48.000000 +00:00'), ('Data Platform Software Engineer', 'https://www.linkedin.com/company/referment', 15165066, 'Referment', None, 11.0, 'London Area, United Kingdom', 'Full-time', 'Mid-Senior level', 'Investment Management', '', 'https://www.linkedin.com/jobs/view/4125910380/?trk=jobs_biz_prem_srch', '2025-01-16 09:29:13.000000 +00:00'), ('Senior Business Intelligence Engineer, EU Consumables Customer Engagement', 'https://www.linkedin.com/company/amazon', 1586, 'Amazon', None, 1.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Software Development', '', 'https://www.linkedin.com/jobs/view/4127560145/?trk=jobs_biz_prem_srch', '2025-01-16 15:25:31.000000 +00:00'), ('Lead Data Engineer - Hybrid/London - £115,000 + Bonus', 'https://www.linkedin.com/company/tenthrevolution', 34947348, 'Tenth Revolution Group', None, None, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Civil Engineering, Industrial Machinery Manufacturing', '', 'https://www.linkedin.com/jobs/view/4125870748/?trk=jobs_biz_prem_srch', '2025-01-16 15:15:31.000000 +00:00'), ('Data Platform Developer/Engineer', 'https://www.linkedin.com/company/the-aa', 166345, 'The AA', None, 9.0, 'London, England, United Kingdom', 'Full-time', '', 'Motor Vehicle Manufacturing, Financial Services, Insurance', '', 'https://www.linkedin.com/jobs/view/4124672486/?trk=jobs_biz_prem_srch', '2025-01-15 20:48:04.000000 +00:00'), ('SC Data Engineer - AWS', 'https://www.linkedin.com/company/free-work-uk', 97189601, 'Free-Work UK', None, 7.0, 'London, England, United Kingdom', 'Full-time', 'Entry level', 'Human Resources Services', '', 'https://www.linkedin.com/jobs/view/4125669173/?trk=jobs_biz_prem_srch', '2025-01-16 04:02:56.000000 +00:00'), ('Senior Data Engineer', 'https://www.linkedin.com/company/barclays-bank', 1426, 'Barclays', None, 61.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Banking, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125201285/?trk=jobs_biz_prem_srch', '2025-01-15 21:48:19.000000 +00:00')  ... displaying 10 of 50 total bound parameter sets ...  ('Level 5 Data Engineer Apprenticeship - Thales', 'https://www.linkedin.com/company/makers-academy', 2921480, 'Makers', None, 38.0, 'London Area, United Kingdom', 'Full-time', '', '', '', 'https://www.linkedin.com/jobs/view/4126182712/?trk=jobs_biz_prem_srch', '2025-01-15 13:34:11.000000 +00:00'), ('DV Cleared Data Engineer', 'https://www.linkedin.com/company/abm-renovation', 1041623, 'INOVERSE GROUPE', None, None, 'London, England, United Kingdom', 'Contract', 'Entry level', 'Data Infrastructure and Analytics', '', 'https://www.linkedin.com/jobs/view/4125229323/?trk=jobs_biz_prem_srch', '2025-01-15 00:00:00.000000 +00:00'))]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-01-16 21:06:02,748 - INFO - Script ended.
+2025-01-16 21:15:43,768 - INFO - Script started.
+2025-01-16 21:15:43,788 - INFO - Connecting to the database for uploading data.
+2025-01-16 21:15:43,968 - WARNING - No timestamp column found in table 'linkedin_Table'. Ensure the table schema includes it.
+2025-01-16 21:15:43,991 - INFO - Uploading DataFrame to table 'linkedin_Table'. DataFrame columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-16 21:15:44,020 - INFO - DataFrame sample:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4125974795/... 2025-01-16 16:07:12+00:00  
+1  https://www.linkedin.com/jobs/view/4125907950/... 2025-01-16 09:51:48+00:00  
+2  https://www.linkedin.com/jobs/view/4125910380/... 2025-01-16 09:29:13+00:00  
+3  https://www.linkedin.com/jobs/view/4127560145/... 2025-01-16 15:25:31+00:00  
+4  https://www.linkedin.com/jobs/view/4125870748/... 2025-01-16 15:15:31+00:00  
+2025-01-16 21:15:44,078 - ERROR - Error uploading data: (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'PostedDate'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[SQL: INSERT INTO dbo.[linkedin_Table] ([JobTitle], [CompanyURL2], [CompanyId], [CompanyName], [SalaryInsights], [NoOfApplicants], [CompanyLocation], [EmploymentStatus], [ExperienceLevel], [Industries], [Benefits], [JobPostingUrl], [PostedDate]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (('Data Engineer', 'https://www.linkedin.com/company/planadigital', 74544851, 'Plan A Digital', None, 7.0, 'London Area, United Kingdom', 'Contract', 'Director', 'Advertising Services, IT Services and IT Consulting', '', 'https://www.linkedin.com/jobs/view/4125974795/?trk=jobs_biz_prem_srch', '2025-01-16 16:07:12.000000 +00:00'), ('Principal Data Engineer', 'https://www.linkedin.com/company/aubay-uk', 33298609, 'Aubay UK', None, 24.0, 'Greater London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Oil and Gas, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125907950/?trk=jobs_biz_prem_srch', '2025-01-16 09:51:48.000000 +00:00'), ('Data Platform Software Engineer', 'https://www.linkedin.com/company/referment', 15165066, 'Referment', None, 11.0, 'London Area, United Kingdom', 'Full-time', 'Mid-Senior level', 'Investment Management', '', 'https://www.linkedin.com/jobs/view/4125910380/?trk=jobs_biz_prem_srch', '2025-01-16 09:29:13.000000 +00:00'), ('Senior Business Intelligence Engineer, EU Consumables Customer Engagement', 'https://www.linkedin.com/company/amazon', 1586, 'Amazon', None, 1.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Software Development', '', 'https://www.linkedin.com/jobs/view/4127560145/?trk=jobs_biz_prem_srch', '2025-01-16 15:25:31.000000 +00:00'), ('Lead Data Engineer - Hybrid/London - £115,000 + Bonus', 'https://www.linkedin.com/company/tenthrevolution', 34947348, 'Tenth Revolution Group', None, None, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Civil Engineering, Industrial Machinery Manufacturing', '', 'https://www.linkedin.com/jobs/view/4125870748/?trk=jobs_biz_prem_srch', '2025-01-16 15:15:31.000000 +00:00'), ('Data Platform Developer/Engineer', 'https://www.linkedin.com/company/the-aa', 166345, 'The AA', None, 9.0, 'London, England, United Kingdom', 'Full-time', '', 'Motor Vehicle Manufacturing, Financial Services, Insurance', '', 'https://www.linkedin.com/jobs/view/4124672486/?trk=jobs_biz_prem_srch', '2025-01-15 20:48:04.000000 +00:00'), ('SC Data Engineer - AWS', 'https://www.linkedin.com/company/free-work-uk', 97189601, 'Free-Work UK', None, 7.0, 'London, England, United Kingdom', 'Full-time', 'Entry level', 'Human Resources Services', '', 'https://www.linkedin.com/jobs/view/4125669173/?trk=jobs_biz_prem_srch', '2025-01-16 04:02:56.000000 +00:00'), ('Senior Data Engineer', 'https://www.linkedin.com/company/barclays-bank', 1426, 'Barclays', None, 61.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Banking, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125201285/?trk=jobs_biz_prem_srch', '2025-01-15 21:48:19.000000 +00:00')  ... displaying 10 of 50 total bound parameter sets ...  ('Level 5 Data Engineer Apprenticeship - Thales', 'https://www.linkedin.com/company/makers-academy', 2921480, 'Makers', None, 38.0, 'London Area, United Kingdom', 'Full-time', '', '', '', 'https://www.linkedin.com/jobs/view/4126182712/?trk=jobs_biz_prem_srch', '2025-01-15 13:34:11.000000 +00:00'), ('DV Cleared Data Engineer', 'https://www.linkedin.com/company/abm-renovation', 1041623, 'INOVERSE GROUPE', None, None, 'London, England, United Kingdom', 'Contract', 'Entry level', 'Data Infrastructure and Analytics', '', 'https://www.linkedin.com/jobs/view/4125229323/?trk=jobs_biz_prem_srch', '2025-01-15 00:00:00.000000 +00:00'))]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-01-16 21:15:44,099 - INFO - Script ended.
+2025-01-16 21:17:12,354 - INFO - Script started.
+2025-01-16 21:17:12,375 - INFO - Connecting to the database for uploading data.
+2025-01-16 21:17:12,463 - INFO - Timestamp columns identified: []
+2025-01-16 21:17:12,480 - INFO - DataFrame columns after excluding timestamp columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl',
+       'PostedDate'],
+      dtype='object')
+2025-01-16 21:17:12,509 - INFO - DataFrame sample data:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl                PostedDate  
+0  https://www.linkedin.com/jobs/view/4125974795/... 2025-01-16 16:07:12+00:00  
+1  https://www.linkedin.com/jobs/view/4125907950/... 2025-01-16 09:51:48+00:00  
+2  https://www.linkedin.com/jobs/view/4125910380/... 2025-01-16 09:29:13+00:00  
+3  https://www.linkedin.com/jobs/view/4127560145/... 2025-01-16 15:25:31+00:00  
+4  https://www.linkedin.com/jobs/view/4125870748/... 2025-01-16 15:15:31+00:00  
+2025-01-16 21:17:12,530 - INFO - Uploading data to table: linkedin_Table
+2025-01-16 21:17:13,255 - ERROR - Error uploading data: (pyodbc.IntegrityError) ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert an explicit value into a timestamp column. Use INSERT with a column list to exclude the timestamp column, or insert a DEFAULT into the timestamp column. (273) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)')
+[SQL: INSERT INTO dbo.[linkedin_Table] ([JobTitle], [CompanyURL2], [CompanyId], [CompanyName], [SalaryInsights], [NoOfApplicants], [CompanyLocation], [EmploymentStatus], [ExperienceLevel], [Industries], [Benefits], [JobPostingUrl], [PostedDate]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (('Data Engineer', 'https://www.linkedin.com/company/planadigital', 74544851, 'Plan A Digital', None, 7.0, 'London Area, United Kingdom', 'Contract', 'Director', 'Advertising Services, IT Services and IT Consulting', '', 'https://www.linkedin.com/jobs/view/4125974795/?trk=jobs_biz_prem_srch', '2025-01-16 16:07:12.000000 +00:00'), ('Principal Data Engineer', 'https://www.linkedin.com/company/aubay-uk', 33298609, 'Aubay UK', None, 24.0, 'Greater London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Oil and Gas, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125907950/?trk=jobs_biz_prem_srch', '2025-01-16 09:51:48.000000 +00:00'), ('Data Platform Software Engineer', 'https://www.linkedin.com/company/referment', 15165066, 'Referment', None, 11.0, 'London Area, United Kingdom', 'Full-time', 'Mid-Senior level', 'Investment Management', '', 'https://www.linkedin.com/jobs/view/4125910380/?trk=jobs_biz_prem_srch', '2025-01-16 09:29:13.000000 +00:00'), ('Senior Business Intelligence Engineer, EU Consumables Customer Engagement', 'https://www.linkedin.com/company/amazon', 1586, 'Amazon', None, 1.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Software Development', '', 'https://www.linkedin.com/jobs/view/4127560145/?trk=jobs_biz_prem_srch', '2025-01-16 15:25:31.000000 +00:00'), ('Lead Data Engineer - Hybrid/London - £115,000 + Bonus', 'https://www.linkedin.com/company/tenthrevolution', 34947348, 'Tenth Revolution Group', None, None, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Civil Engineering, Industrial Machinery Manufacturing', '', 'https://www.linkedin.com/jobs/view/4125870748/?trk=jobs_biz_prem_srch', '2025-01-16 15:15:31.000000 +00:00'), ('Data Platform Developer/Engineer', 'https://www.linkedin.com/company/the-aa', 166345, 'The AA', None, 9.0, 'London, England, United Kingdom', 'Full-time', '', 'Motor Vehicle Manufacturing, Financial Services, Insurance', '', 'https://www.linkedin.com/jobs/view/4124672486/?trk=jobs_biz_prem_srch', '2025-01-15 20:48:04.000000 +00:00'), ('SC Data Engineer - AWS', 'https://www.linkedin.com/company/free-work-uk', 97189601, 'Free-Work UK', None, 7.0, 'London, England, United Kingdom', 'Full-time', 'Entry level', 'Human Resources Services', '', 'https://www.linkedin.com/jobs/view/4125669173/?trk=jobs_biz_prem_srch', '2025-01-16 04:02:56.000000 +00:00'), ('Senior Data Engineer', 'https://www.linkedin.com/company/barclays-bank', 1426, 'Barclays', None, 61.0, 'London, England, United Kingdom', 'Full-time', 'Mid-Senior level', 'Banking, Financial Services', '', 'https://www.linkedin.com/jobs/view/4125201285/?trk=jobs_biz_prem_srch', '2025-01-15 21:48:19.000000 +00:00')  ... displaying 10 of 50 total bound parameter sets ...  ('Level 5 Data Engineer Apprenticeship - Thales', 'https://www.linkedin.com/company/makers-academy', 2921480, 'Makers', None, 38.0, 'London Area, United Kingdom', 'Full-time', '', '', '', 'https://www.linkedin.com/jobs/view/4126182712/?trk=jobs_biz_prem_srch', '2025-01-15 13:34:11.000000 +00:00'), ('DV Cleared Data Engineer', 'https://www.linkedin.com/company/abm-renovation', 1041623, 'INOVERSE GROUPE', None, None, 'London, England, United Kingdom', 'Contract', 'Entry level', 'Data Infrastructure and Analytics', '', 'https://www.linkedin.com/jobs/view/4125229323/?trk=jobs_biz_prem_srch', '2025-01-15 00:00:00.000000 +00:00'))]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+2025-01-16 21:17:13,280 - INFO - Script ended.
+2025-01-16 21:17:37,076 - INFO - Script started.
+2025-01-16 21:17:37,096 - INFO - Connecting to the database for uploading data.
+2025-01-16 21:17:37,281 - INFO - Timestamp columns identified: ['PostedDate']
+2025-01-16 21:17:37,306 - INFO - DataFrame columns after excluding timestamp columns: Index(['JobTitle', 'CompanyURL2', 'CompanyId', 'CompanyName', 'SalaryInsights',
+       'NoOfApplicants', 'CompanyLocation', 'EmploymentStatus',
+       'ExperienceLevel', 'Industries', 'Benefits', 'JobPostingUrl'],
+      dtype='object')
+2025-01-16 21:17:37,337 - INFO - DataFrame sample data:
+                                            JobTitle  \
+0                                      Data Engineer   
+1                            Principal Data Engineer   
+2                    Data Platform Software Engineer   
+3  Senior Business Intelligence Engineer, EU Cons...   
+4  Lead Data Engineer - Hybrid/London - £115,000 ...   
+
+                                        CompanyURL2  CompanyId  \
+0     https://www.linkedin.com/company/planadigital   74544851   
+1         https://www.linkedin.com/company/aubay-uk   33298609   
+2        https://www.linkedin.com/company/referment   15165066   
+3           https://www.linkedin.com/company/amazon       1586   
+4  https://www.linkedin.com/company/tenthrevolution   34947348   
+
+              CompanyName  SalaryInsights  NoOfApplicants  \
+0          Plan A Digital             NaN             7.0   
+1                Aubay UK             NaN            24.0   
+2               Referment             NaN            11.0   
+3                  Amazon             NaN             1.0   
+4  Tenth Revolution Group             NaN             NaN   
+
+                           CompanyLocation EmploymentStatus   ExperienceLevel  \
+0              London Area, United Kingdom         Contract          Director   
+1  Greater London, England, United Kingdom        Full-time  Mid-Senior level   
+2              London Area, United Kingdom        Full-time  Mid-Senior level   
+3          London, England, United Kingdom        Full-time  Mid-Senior level   
+4          London, England, United Kingdom        Full-time  Mid-Senior level   
+
+                                          Industries Benefits  \
+0  Advertising Services, IT Services and IT Consu...            
+1                    Oil and Gas, Financial Services            
+2                              Investment Management            
+3                               Software Development            
+4  Civil Engineering, Industrial Machinery Manufa...            
+
+                                       JobPostingUrl  
+0  https://www.linkedin.com/jobs/view/4125974795/...  
+1  https://www.linkedin.com/jobs/view/4125907950/...  
+2  https://www.linkedin.com/jobs/view/4125910380/...  
+3  https://www.linkedin.com/jobs/view/4127560145/...  
+4  https://www.linkedin.com/jobs/view/4125870748/...  
+2025-01-16 21:17:37,362 - INFO - Uploading data to table: linkedin_Table
+2025-01-16 21:17:38,145 - INFO - Data uploaded successfully to linkedin_Table.
+2025-01-16 21:17:38,162 - INFO - Script ended.
