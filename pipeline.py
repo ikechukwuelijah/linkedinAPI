@@ -16,7 +16,7 @@ payload = {
 
 # Headers include the API key and host for authentication and identification
 headers = {
-    "x-rapidapi-key": "531193f132msh71720d21c9c014ap118541jsn0984870f4075",  # Your API key
+    "x-rapidapi-key": "",  # Your API key
     "x-rapidapi-host": "linkedin-data-scraper.p.rapidapi.com",  # Host for the API
     "Content-Type": "application/json"  # Data type for the request body
 }
